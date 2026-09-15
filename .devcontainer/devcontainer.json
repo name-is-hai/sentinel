@@ -1,0 +1,9 @@
+{
+  "name": "The platform for centralize DevSecOps scanner",
+  "remoteUser": "dev",
+  "runArgs": ["--user=dev", "--security-opt=label=disable"],
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/workspace",
+  "workspaceFolder": "/workspace",
+  "image": "ghcr.io/name-is-hai/base-dev-image:sha-a8048c4",
+  "postCreateCommand": "curl -fsSL https://gist.githubusercontent.com/name-is-hai/5170a07590c0d3f6afe35079852c5634/raw/93d18ad7b964fa753b89108ee281d280e5bfd43f/postinstall-devcontainer.sh | bash"
+}

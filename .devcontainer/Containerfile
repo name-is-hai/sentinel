@@ -1,0 +1,8 @@
+FROM ghcr.io/name-is-hai/base-dev-image:sha-a8048c4
+
+USER root
+
+RUN curl -fsSL \
+  https://gist.githubusercontent.com/name-is-hai/5170a07590c0d3f6afe35079852c5634/raw/6c653f66130af71f56d9c45d7801f58b8f3aa5bb/postinstall-devcontainer.sh | bash
+
+USER dev
