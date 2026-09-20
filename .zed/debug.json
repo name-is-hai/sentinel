@@ -1,0 +1,58 @@
+[
+  {
+    "label": "Debug sentinel scan",
+    "adapter": "CodeLLDB",
+    "build": {
+      "command": "cargo",
+      "args": ["build"],
+      "cwd": "$ZED_WORKTREE_ROOT"
+    },
+    "program": "$ZED_WORKTREE_ROOT/target/debug/sentinel",
+    "args": ["scan", "."],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "request": "launch",
+    "sourceLanguages": ["rust"]
+  },
+  {
+    "label": "Debug sentinel doctor",
+    "adapter": "CodeLLDB",
+    "build": {
+      "command": "cargo",
+      "args": ["build"],
+      "cwd": "$ZED_WORKTREE_ROOT"
+    },
+    "program": "$ZED_WORKTREE_ROOT/target/debug/sentinel",
+    "args": ["doctor"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "request": "launch",
+    "sourceLanguages": ["rust"]
+  },
+  {
+    "label": "Debug sentinel sbom",
+    "adapter": "CodeLLDB",
+    "build": {
+      "command": "cargo",
+      "args": ["build"],
+      "cwd": "$ZED_WORKTREE_ROOT"
+    },
+    "program": "$ZED_WORKTREE_ROOT/target/debug/sentinel",
+    "args": ["sbom", "."],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "request": "launch",
+    "sourceLanguages": ["rust"]
+  },
+  {
+    "label": "Debug sentinel invalid target",
+    "adapter": "CodeLLDB",
+    "build": {
+      "command": "cargo",
+      "args": ["build"],
+      "cwd": "$ZED_WORKTREE_ROOT"
+    },
+    "program": "$ZED_WORKTREE_ROOT/target/debug/sentinel",
+    "args": ["scan", "definitely-not-a-real-path"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "request": "launch",
+    "sourceLanguages": ["rust"]
+  }
+]

@@ -1,2 +1,4 @@
 [tools]
+grype = "latest"
 rust = "latest"
+syft = "latest"
