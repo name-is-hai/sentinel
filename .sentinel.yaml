@@ -1,0 +1,10 @@
+security:
+    vulnerabilities:
+        block:
+            critical: true
+            high: true
+            medium: true
+            low: true
+        allow:
+            - GHSA-wc9v-mj63-m9g5
+            - GHSA-593f-38f6-jp5m
