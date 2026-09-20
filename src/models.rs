@@ -1,6 +1,8 @@
-use serde::Deserialize;
+use std::path::PathBuf;
 
-#[derive(Deserialize, Debug, PartialEq, Eq, Hash, Clone, Copy, Ord, PartialOrd)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Hash, Clone, Copy, Ord, PartialOrd)]
 pub enum Severity {
     Critical,
     High,
@@ -23,7 +25,7 @@ pub struct Finding {
     pub message: String,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Serialize, Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Decision {
     Allow,
     Block,
@@ -52,4 +54,20 @@ pub enum ScanError {
     OutputDirectoryError,
     OutputFileError,
     ToolFailed,
+}
+
+#[derive(Serialize, Debug, PartialEq, Eq)]
+pub struct JsonReport {
+    pub decision: Decision,
+    pub severity_reports: Vec<SeverityReport>,
+}
+
+#[derive(Serialize, Debug, PartialEq, Eq)]
+pub struct SeverityReport {
+    pub severity: Severity,
+    pub count: usize,
+}
+
+pub struct ScanTarget<'target> {
+    pub path: &'target PathBuf,
 }
