@@ -1,4 +1,4 @@
-use crate::scan::ScanArgs;
+use crate::scan::{SbomArgs, ScanArgs};
 use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
@@ -16,6 +16,9 @@ pub struct Command {
 pub enum Sub {
     Scan(ScanArgs),
     Report,
+    Doctor,
+    Sbom(SbomArgs),
+    Config,
 }
 
 pub fn parse() -> Command {
